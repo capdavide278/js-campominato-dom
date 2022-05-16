@@ -31,6 +31,8 @@ bottone1.addEventListener("click",
     function(){
         const mionuovoarray = arrayrandom(100, 1, 100);
         console.log(mionuovoarray);
+        const  bomba = arraybomb(16, 1, 100);  
+        console.log(bomba);                                 
 
 //for per creare cento celle
 for(let i = 0; i < mionuovoarray.length; i++){
@@ -38,11 +40,15 @@ for(let i = 0; i < mionuovoarray.length; i++){
 
     let arrayitem = mionuovoarray[i]; 
 
-    
     elementdiv.addEventListener("click",
     function(){
         elementdiv.append(arrayitem);
-        this.classList.add("cliccato");
+        
+        if(bomba.includes(arrayitem)){
+            this.classList.add("click-rosso");
+        }else{
+            this.classList.add("cliccato");
+        }
     }
     );
 
@@ -57,8 +63,10 @@ bottone2.addEventListener("click",
     function(){
         const mionuovoarray = arrayrandom(81, 1, 81);
         console.log(mionuovoarray);
+        const  bomba = arraybomb(16, 1, 81);  
+        console.log(bomba);   
 
-//for per creare cento celle
+//for per creare 81 celle
 for(let i = 0; i < mionuovoarray.length; i++){
     const elementdiv = elementocreato81();
 
@@ -68,7 +76,12 @@ for(let i = 0; i < mionuovoarray.length; i++){
     elementdiv.addEventListener("click",
     function(){
         elementdiv.append(arrayitem);
-        this.classList.add("cliccato");
+
+        if(bomba.includes(arrayitem)){
+            this.classList.add("click-rosso");
+        }else{
+            this.classList.add("cliccato");
+        }
     }
     );
 
@@ -82,8 +95,10 @@ for(let i = 0; i < mionuovoarray.length; i++){
 //livello difficile
 bottone3.addEventListener("click",
     function(){
-        const mionuovoarray = arrayrandom(81, 1, 81);
+        const mionuovoarray = arrayrandom(49, 1, 49);
         console.log(mionuovoarray);
+        const  bomba = arraybomb(16, 1, 49);  
+        console.log(bomba);
 
 //for per creare cento celle
 for(let i = 0; i < mionuovoarray.length; i++){
@@ -95,7 +110,11 @@ for(let i = 0; i < mionuovoarray.length; i++){
     function(){
         //mostra numeri
         elementdiv.append(arrayitem);
-        this.classList.add("cliccato");
+        if(bomba.includes(arrayitem)){
+            this.classList.add("click-rosso");
+        }else{
+            this.classList.add("cliccato");
+        }
     }
     );
 
@@ -128,7 +147,7 @@ function randomNumMinMax(rangeMin, rangeMax) {
 };
 
 //funzione array bomb
-function arraybomb(){
+function arraybomb(elementi, min, max){
     const arraybombavuoto = [];
 
     while(arraybombavuoto.length < elementi){
@@ -138,4 +157,5 @@ function arraybomb(){
             arraybombavuoto.push(random_bomb);
         }
     }
+    return arraybombavuoto;
 }
