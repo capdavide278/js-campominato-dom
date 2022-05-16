@@ -33,9 +33,11 @@ bottone1.addEventListener("click",
         console.log(mionuovoarray);
         const  bomba = arraybomb(16, 1, 100);  
         console.log(bomba);                                 
-
-//for per creare cento celle
-for(let i = 0; i < mionuovoarray.length; i++){
+        let punteggio = document.getElementById("punteggio").innerHTML;
+        let punto_bomba = 0;
+        let punteggio_finale = 0;
+    //for per creare cento celle
+    for(let i = 0; i < mionuovoarray.length; i++){
     const elementdiv = elementocreato100();
 
     let arrayitem = mionuovoarray[i]; 
@@ -46,9 +48,17 @@ for(let i = 0; i < mionuovoarray.length; i++){
         
         if(bomba.includes(arrayitem)){
             this.classList.add("click-rosso");
+            alert("Hai perso la partita");
+            punto_bomba = punto_bomba - 1; 
+            console.log(punto_bomba);
         }else{
             this.classList.add("cliccato");
+            punteggio += 1;
+            console.log(punteggio);
+            document.getElementById("punteggio").innerHTML = parseInt(punteggio);
         }
+        punteggio_finale = punteggio + punto_bomba; 
+        console.log(punteggio_finale);
     }
     );
 
@@ -64,33 +74,40 @@ bottone2.addEventListener("click",
         const mionuovoarray = arrayrandom(81, 1, 81);
         console.log(mionuovoarray);
         const  bomba = arraybomb(16, 1, 81);  
-        console.log(bomba);   
-
-//for per creare 81 celle
+        console.log(bomba);                                 
+        let punteggio = document.getElementById("punteggio").innerHTML;
+        let punto_bomba = 0;
+        let punteggio_finale = 0;
+//for per creare cento celle
 for(let i = 0; i < mionuovoarray.length; i++){
-    const elementdiv = elementocreato81();
+    const elementdiv = elementocreato100();
 
     let arrayitem = mionuovoarray[i]; 
 
-    
     elementdiv.addEventListener("click",
     function(){
         elementdiv.append(arrayitem);
-
+        
         if(bomba.includes(arrayitem)){
             this.classList.add("click-rosso");
+            alert("Hai perso la partita");
+            punto_bomba = punto_bomba - 1; 
+            console.log(punto_bomba);
         }else{
             this.classList.add("cliccato");
+            punteggio += 1;
+            console.log(punteggio);
+            document.getElementById("punteggio").innerHTML = parseInt(punteggio);
         }
+        punteggio_finale = punteggio + punto_bomba; 
+        console.log(punteggio_finale);
     }
     );
-
 
     elementogriglia.append(elementdiv);
     }
 
-    }
-);
+});
 
 //livello difficile
 bottone3.addEventListener("click",
@@ -98,32 +115,40 @@ bottone3.addEventListener("click",
         const mionuovoarray = arrayrandom(49, 1, 49);
         console.log(mionuovoarray);
         const  bomba = arraybomb(16, 1, 49);  
-        console.log(bomba);
-
-//for per creare cento celle
-for(let i = 0; i < mionuovoarray.length; i++){
-    const elementdiv = elementocreato49();
+        console.log(bomba);                                 
+        let punteggio = document.getElementById("punteggio").innerHTML;
+        let punto_bomba = 0;
+        let punteggio_finale = 0;
+    //for per creare cento celle
+    for(let i = 0; i < mionuovoarray.length; i++){
+    const elementdiv = elementocreato100();
 
     let arrayitem = mionuovoarray[i]; 
-    
+
     elementdiv.addEventListener("click",
     function(){
-        //mostra numeri
         elementdiv.append(arrayitem);
+        
         if(bomba.includes(arrayitem)){
             this.classList.add("click-rosso");
+            alert("Hai perso la partita");
+            punto_bomba = punto_bomba - 1; 
+            console.log(punto_bomba);
         }else{
             this.classList.add("cliccato");
+            punteggio += 1;
+            console.log(punteggio);
+            document.getElementById("punteggio").innerHTML = parseInt(punteggio);
         }
+        punteggio_finale = punteggio + punto_bomba; 
+        console.log(punteggio_finale);
     }
     );
-
 
     elementogriglia.append(elementdiv);
     }
 
-    }
-);
+});
 
 //creare array random
 function arrayrandom(elementi, min, max){
